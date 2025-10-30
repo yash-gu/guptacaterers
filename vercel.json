@@ -2,16 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "**/*.html",
+      "src": "**/*.@(html|css|js|jpg|jpeg|png|gif|svg|ico)",
       "use": "@vercel/static"
     },
     {
-      "src": "**/*",
+      "src": "index.html",
       "use": "@vercel/static"
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+    {
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
