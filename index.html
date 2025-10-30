@@ -116,30 +116,95 @@
                     <p>thepridebyguptacaterers@gmail.com</p>
                 </div>
             </div>
-            <form class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSevuhY3UIFepGywqZeOzgGVXKILKY6hSmNt5C5hYCNxvdx_Gw/formResponse" method="POST" target="_blank">
+            <form class="contact-form" 
+                  action="https://docs.google.com/forms/d/e/1FAIpQLSevuhY3UIFepGywqZeOzgGVXKILKY6hSmNt5C5hYCNxvdx_Gw/formResponse" 
+                  method="POST" 
+                  target="hidden-iframe"
+                  onsubmit="return submitGoogleForm(this);">
+                
                 <!-- Name -->
-                <input type="text" name="entry.2005620554" placeholder="Your Name" required>
+                <input type="text" 
+                       name="entry.2005620554" 
+                       id="entry.2005620554"
+                       placeholder="Your Name" 
+                       required>
                 
                 <!-- Email -->
-                <input type="email" name="entry.1045781291" placeholder="Your Email" required>
+                <input type="email" 
+                       name="entry.1045781291" 
+                       id="entry.1045781291"
+                       placeholder="Your Email" 
+                       required>
                 
                 <!-- Phone Number -->
-                <input type="tel" name="entry.1166974658" placeholder="Phone Number">
+                <input type="tel" 
+                       name="entry.1166974658" 
+                       id="entry.1166974658"
+                       placeholder="Phone Number"
+                       required>
                 
-                <!-- Service Type (changed to text input) -->
-                <input type="text" name="entry.1065046570" placeholder="Type of Service (e.g., Wedding, Party, Corporate)" required>
+                <!-- Service Type -->
+                <input type="text" 
+                       name="entry.1065046570" 
+                       id="entry.1065046570"
+                       placeholder="Type of Service (e.g., Wedding, Party, Corporate)" 
+                       required>
                 
                 <!-- Message -->
-                <textarea name="entry.839337160" placeholder="Your Message" rows="4" required></textarea>
+                <textarea name="entry.839337160" 
+                          id="entry.839337160"
+                          placeholder="Your Message" 
+                          rows="4" 
+                          required></textarea>
+                
+                <!-- Hidden Fields -->
+                <input type="hidden" name="fvv" value="1">
+                <input type="hidden" name="draftResponse" value='[null,null,"-1"]'>
+                <input type="hidden" name="pageHistory" value="0">
+                <input type="hidden" name="fbzx" value="-1">
                 
                 <!-- Submit Button -->
                 <button type="submit" class="cta-button">Send Message</button>
-                
-                <!-- Google Forms Confirmation Page -->
-                <input type="hidden" name="submit" value="Submit">
             </form>
             
-            <p class="form-note">After submitting, you'll be redirected to a confirmation page. Thank you for your message!</p>
+            <p class="form-note">We'll get back to you soon. Thank you for your message!</p>
+            
+            <iframe name="hidden-iframe" id="hidden-iframe" style="display:none;"></iframe>
+            
+            <script>
+            function submitGoogleForm(form) {
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                
+                // Disable submit button
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+                
+                // Handle response
+                const iframe = document.getElementById('hidden-iframe');
+                
+                iframe.onload = function() {
+                    // Show success message
+                    alert('Thank you for your message! We will get back to you soon.');
+                    
+                    // Reset form
+                    form.reset();
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                };
+                
+                // Handle errors
+                form.onsubmit = function() {
+                    setTimeout(function() {
+                        if (iframe.contentWindow.document.URL.indexOf('formResponse') > -1) {
+                            iframe.onload();
+                        }
+                    }, 1000);
+                };
+                
+                return true;
+            }
+            </script>
         </div>
     </section>
 
