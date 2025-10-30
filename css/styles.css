@@ -128,9 +128,57 @@ h2::after {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-color);
+}
+
+.logo-img {
+    max-height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.brand-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #333;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.by-line {
+    font-weight: 400;
+    color: #777;
+    font-size: 0.85em;
+    margin-left: 2px;
+}
+
+.footer-section h3 .by-line {
+    color: #aaa;
+}
+
+/* Make logo stack on mobile */
+@media (max-width: 768px) {
+    .logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    
+    .brand-name {
+        font-size: 1rem;
+    }
+}
 }
 
 .nav-links {
@@ -402,6 +450,76 @@ h2::after {
     min-height: 120px;
 }
 
+.contact-form button[type="submit"] {
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.3);
+}
+
+.form-note {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+}
+
+/* Form validation styles */
+.contact-form input:invalid,
+.contact-form select:invalid,
+.contact-form textarea:invalid {
+    border-color: #ff6b6b;
+}
+
+.contact-form input:valid,
+.contact-form select:valid,
+.contact-form textarea:valid {
+    border-color: #51cf66;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form {
+        gap: 15px;
+    }
+    
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        padding: 12px;
+    }
+    
+    .contact-form button[type="submit"] {
+        padding: 12px 25px;
+    }
+}
+
 /* Footer */
 .footer {
     background-color: var(--dark-color);
@@ -452,102 +570,56 @@ h2::after {
 
 .social-links a {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    margin: 0 5px;
 }
 
 .social-links a.instagram-qr {
     position: relative;
-    cursor: pointer;
 }
 
 .social-links a.instagram-qr .qr-code {
     position: absolute;
     bottom: 120%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(0);
     width: 150px;
     height: 150px;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 0.3s ease;
     z-index: 1000;
     border: 4px solid white;
     background: white;
     padding: 8px;
-    display: none;
-    transition: all 0.3s ease;
 }
 
-.social-links a.instagram-qr .qr-code.visible {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-
-.qr-code-hint {
-    display: none;
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--primary-color);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    z-index: 1001;
-}
-
-.qr-code-hint.visible {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-.qr-code-hint::after {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 0 6px 6px 6px;
-    border-style: solid;
-    border-color: transparent transparent var(--primary-color) transparent;
-}
-
-.instagram-qr {
-    position: relative;
-}
-
-.instagram-qr-code img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 4px;
-}
-
-
-.instagram-qr:hover .instagram-qr-code {
+.social-links a.instagram-qr:hover .qr-code {
+    transform: translateX(-50%) scale(1);
     opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-    pointer-events: auto;
+    bottom: 130%;
 }
 
 .qr-code-hint {
     color: #bdc3c7;
     font-size: 0.8rem;
     margin-top: 10px;
-    opacity: 0.7;
-    transition: all 0.3s ease;
     text-align: center;
-    position: relative;
-    z-index: 1;
+    opacity: 0.8;
+    transition: all 0.3s ease;
 }
 
-.instagram-qr:hover ~ .qr-code-hint {
+.social-links a.instagram-qr:hover + .qr-code-hint {
     opacity: 1;
     color: var(--primary-color);
 }
@@ -661,5 +733,304 @@ h2::after {
     
     .contact-container {
         grid-template-columns: 1fr;
+    }
+}
+
+/* QR Code Modal - Modern Card Style */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    backdrop-filter: blur(4px);
+}
+
+.modal.show {
+    display: flex;
+    opacity: 1;
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; backdrop-filter: blur(0); }
+    to { opacity: 1; backdrop-filter: blur(4px); }
+}
+
+.modal-content {
+    background: white;
+    padding: 0;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    width: 280px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.modal.show .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Header with Instagram gradient */
+.qr-header {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    padding: 1rem 1.5rem;
+    color: white;
+    text-align: left;
+    position: relative;
+}
+
+.qr-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+}
+
+.qr-header h3 i {
+    font-size: 1.4rem;
+}
+
+/* QR Code Container */
+.qr-container {
+    padding: 1.8rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Instagram QR Code Click Effect */
+.social-links a.instagram-qr {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.social-links a.instagram-qr .qr-code {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    transform-origin: bottom center;
+    opacity: 0;
+    visibility: hidden;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    z-index: 1000;
+    width: 130px;
+    margin-bottom: 10px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.social-links a.instagram-qr .qr-code.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+    pointer-events: auto;
+}
+
+.social-links a.instagram-qr .qr-code img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto 5px;
+    border-radius: 4px;
+    background: white;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.social-links a.instagram-qr .qr-code p {
+    margin: 5px 0 0;
+    color: #555;
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
+.social-links a.instagram-qr .qr-arrow {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid white;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.05));
+}
+
+/* Close button for QR code */
+.social-links a.instagram-qr .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    border-radius: 50%;
+    color: #777;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 2;
+}
+
+.social-links a.instagram-qr .close-btn:hover {
+    background: #e1306c;
+    color: white;
+}
+
+.qr-hint {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 5px;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.social-links a.instagram-qr.active + .qr-hint {
+    color: #e1306c;
+}
+
+/* Animation for QR code */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.9);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.social-links a.instagram-qr .qr-code.visible {
+    animation: popIn 0.3s ease-out forwards;
+}
+
+.qr-container p {
+    margin: 1.2rem 0 0;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 90%;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+    z-index: 2;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(90deg);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .modal-content {
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    .qr-image {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .qr-container {
+        padding: 1.5rem 1.2rem 1.8rem;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: color 0.2s ease;
+    line-height: 1;
+    padding: 5px 10px;
+}
+
+.close-btn:hover {
+    color: var(--primary-color);
+}
+
+.qr-hint {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+    
+    .qr-image {
+        max-width: 200px;
     }
 }
