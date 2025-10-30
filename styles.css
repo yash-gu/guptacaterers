@@ -949,23 +949,42 @@ p {
     transform: scale(1.1);
 }
 
-/* ===== Google Form Container ===== */
-.google-form-container {
-    width: 100%;
-    max-width: 800px;
+/* ===== Form Link Container ===== */
+.form-link-container {
+    text-align: center;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
     background: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    overflow: hidden;
 }
 
-.google-form-container iframe {
-    width: 100%;
-    min-height: 1300px; /* Adjust based on your form's height */
-    border: none;
-    background: transparent;
+.form-link-container p {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.form-link-container .cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.form-link-container .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
 }
 
 /* ===== Card Hover Effect ===== */
