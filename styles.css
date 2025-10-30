@@ -717,19 +717,156 @@ p {
 }
 
 /* ===== Footer ===== */
-/*
+.footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+    color: #fff;
+    padding: 60px 0 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-section {
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
 .footer-section h3 .by-line {
-    color: #aaa;
+    color: #bbb;
+    font-size: 0.9rem;
+    font-weight: 400;
+    display: block;
+    margin-top: 5px;
+}
+
+.footer-section p {
+    color: #bbb;
+    margin-bottom: 20px;
+    line-height: 1.7;
 }
 
 .footer-section ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-section ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
 }
-*/
+
+.footer-section ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.footer-section ul li:hover::before {
+    transform: translateX(5px);
+}
+
+.footer-section a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    display: block;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-section {
+        margin-bottom: 20px;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+}
 
 /* ===== QR Code Toggle ===== */
 .instagram-qr {
@@ -812,6 +949,25 @@ p {
     transform: scale(1.1);
 }
 
+/* ===== Google Form Container ===== */
+.google-form-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.google-form-container iframe {
+    width: 100%;
+    min-height: 1300px; /* Adjust based on your form's height */
+    border: none;
+    background: transparent;
+}
+
 /* ===== Card Hover Effect ===== */
 .service-card {
     transition: var(--transition);
@@ -820,6 +976,24 @@ p {
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments for the form */
+@media (max-width: 768px) {
+    .google-form-container {
+        padding: 10px;
+    }
+    
+    .google-form-container iframe {
+        min-height: 1500px; /* Slightly taller on mobile to prevent cutoff */
+    }
+}
+
+/* Adjust the form on very small screens */
+@media (max-width: 480px) {
+    .google-form-container iframe {
+        min-height: 1600px; /* Even taller for very small screens */
+    }
 }
 
 /* Ensure the QR code is above other elements */
