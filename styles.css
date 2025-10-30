@@ -1,16 +1,18 @@
 /* ===== CSS Variables ===== */
 :root {
-    --primary-color: #e67e22;
-    --primary-light: #f39c12;
-    --secondary-color: #2c3e50;
-    --accent-color: #e74c3c;
-    --light-color: #f8f9fa;
-    --dark-color: #2c3e50;
-    --text-color: #333;
-    --text-light: #6c757d;
-    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --primary-color: #1a365d;      /* Deep Navy Blue */
+    --primary-light: #2c5282;      /* Lighter Navy */
+    --secondary-color: #2d3748;    /* Dark Gray Blue */
+    --accent-color: #c05621;       /* Burnt Orange */
+    --accent-light: #dd6b20;       /* Lighter Orange */
+    --light-color: #f8f9fa;        /* Off White */
+    --dark-color: #1a202c;         /* Dark Slate */
+    --text-color: #2d3748;         /* Dark Gray Blue */
+    --text-light: #4a5568;         /* Medium Gray */
+    --background-light: #f7fafc;   /* Light Gray Background */
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --border-radius: 8px;
+    --border-radius: 10px;
     --section-padding: 100px 0;
 }
 
@@ -1082,11 +1084,34 @@ p {
 /* Instagram icon specific styles */
 .fa-instagram {
     position: relative;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.3em;
+    vertical-align: middle;
+    margin: 0 2px;
 }
 
-.fa-instagram:hover {
-    transform: scale(1.1);
+.social-links a {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.social-links a:hover .fa-instagram {
+    transform: scale(1.2);
 }
 
 /* ===== Form Link Container ===== */
@@ -1106,18 +1131,55 @@ p {
     font-size: 1.1rem;
 }
 
-.form-link-container .cta-button {
+/* ===== Buttons ===== */
+.cta-button {
     display: inline-block;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.form-link-container .cta-button span {
+    position: relative;
+    z-index: 2;
 }
 
 .form-link-container .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.form-link-container .cta-button:hover::before {
+    opacity: 1;
+}
+
+.form-link-container .cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .form-note {
