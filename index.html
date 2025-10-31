@@ -65,15 +65,67 @@
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
-        <h2>Our Work</h2>
-        <div class="gallery-grid">
-            <!-- Placeholder for gallery images -->
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
-            <div class="gallery-item"></div>
+        <div class="container">
+            <h2>Our Work</h2>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="wedding">Weddings</button>
+                <button class="filter-btn" data-filter="corporate">Corporate Events</button>
+                <button class="filter-btn" data-filter="party">Private Parties</button>
+            </div>
+            <div class="gallery-grid">
+                <!-- Gallery items will be dynamically inserted here by gallery.js -->
+            </div>
+            <div class="gallery-cta">
+                <p>Want to see more of our work?</p>
+                <a href="#contact" class="cta-button">Request Our Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Customization Tool -->
+    <section id="menu-builder" class="menu-builder">
+        <div class="container">
+            <h2>Build Your Custom Menu</h2>
+            <p class="subtitle">Create your perfect menu by selecting from our delicious options</p>
+            
+            <div class="menu-builder-container">
+                <div class="menu-categories">
+                    <div class="category active" data-category="starters">
+                        <i class="fas fa-utensils"></i>
+                        <span>Starters</span>
+                    </div>
+                    <div class="category" data-category="main-course">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <span>Main Course</span>
+                    </div>
+                    <div class="category" data-category="desserts">
+                        <i class="fas fa-ice-cream"></i>
+                        <span>Desserts</span>
+                    </div>
+                    <div class="category" data-category="beverages">
+                        <i class="fas fa-wine-glass-alt"></i>
+                        <span>Beverages</span>
+                    </div>
+                </div>
+                
+                <div class="menu-items-container">
+                    <div class="menu-items" id="menu-items">
+                        <!-- Menu items will be loaded here -->
+                    </div>
+                    <div class="selected-items">
+                        <h3>Your Selections</h3>
+                        <ul id="selected-items-list">
+                            <!-- Selected items will appear here -->
+                        </ul>
+                        <div class="menu-summary">
+                            <div class="total-items">Items: <span>0</span></div>
+                            <div class="total-price">Total: ₹<span>0</span></div>
+                        </div>
+                        <button id="submit-menu" class="cta-button">Request Quote</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -107,32 +159,6 @@
                 <p class="highlight-text">We invite you to become part of our extended family of satisfied clients. Thank you for trusting us to be a part of your most important occasions and for supporting a legacy that is close to our hearts.</p>
             </div>
 
-            <div class="team-section">
-                <h3>Meet Our Team</h3>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="team-photo">
-                            <img src="/images/team/team1.jpg" alt="Team Member 1">
-                        </div>
-                        <h4>Mr. Gupta</h4>
-                        <p class="position">Founder</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-photo">
-                            <img src="/images/team/team2.jpg" alt="Team Member 2">
-                        </div>
-                        <h4>Raj Gupta</h4>
-                        <p class="position">Head Chef</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-photo">
-                            <img src="/images/team/team3.jpg" alt="Team Member 3">
-                        </div>
-                        <h4>Priya Gupta</h4>
-                        <p class="position">Event Manager</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
