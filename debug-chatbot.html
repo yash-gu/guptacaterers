@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Test</title>
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <h1>Chatbot Test Page</h1>
+    <p>This is a test page for the chatbot.</p>
+    
+    <script src="chatbot.js"></script>
+    
+    <script>
+        // Test if chatbot was created
+        setTimeout(() => {
+            const chatbot = document.getElementById('chatbot-container');
+            console.log('Chatbot element:', chatbot);
+            if (chatbot) {
+                console.log('Chatbot found on page!');
+                document.body.style.border = '5px solid green';
+            } else {
+                console.error('Chatbot not found on page!');
+                document.body.style.border = '5px solid red';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
