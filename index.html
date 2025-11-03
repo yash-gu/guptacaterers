@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gupta Caterers & Event Management</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
             <div class="logo">
-                <img src="/images/logo.jpeg" alt="The Pride ~by guptacaterers" class="logo-img">
+                <img src="/images/logo.png" alt="The Pride ~by guptacaterers" class="logo-img">
                 <span class="brand-name">The Pride <span class="by-line">~by guptacaterers</span></span>
             </div>
             <ul class="nav-links">
@@ -67,18 +67,93 @@
     <section id="gallery" class="gallery">
         <div class="container">
             <h2>Our Work</h2>
+            <p class="section-subtitle">Explore our portfolio of memorable events and culinary experiences</p>
+            
             <div class="gallery-filters">
                 <button class="filter-btn active" data-filter="all">All Events</button>
                 <button class="filter-btn" data-filter="wedding">Weddings</button>
-                <button class="filter-btn" data-filter="corporate">Corporate Events</button>
+                <button class="filter-btn" data-filter="corporate">Corporate</button>
                 <button class="filter-btn" data-filter="party">Private Parties</button>
+                <button class="filter-btn" data-filter="social">Social Events</button>
             </div>
+            
             <div class="gallery-grid">
-                <!-- Gallery items will be dynamically inserted here by gallery.js -->
+                <!-- Wedding 1 -->
+                <div class="gallery-item" data-category="wedding">
+                    <img src="https://source.unsplash.com/random/600x600/?wedding-reception" alt="Elegant Wedding Reception">
+                    <div class="gallery-item-content">
+                        <h3>Elegant Wedding Reception</h3>
+                        <p>Grand ballroom with floral arrangements</p>
+                    </div>
+                </div>
+                
+                <!-- Corporate 1 -->
+                <div class="gallery-item" data-category="corporate">
+                    <img src="https://source.unsplash.com/random/600x600/?corporate-event" alt="Corporate Gala Dinner">
+                    <div class="gallery-item-content">
+                        <h3>Corporate Gala</h3>
+                        <p>Annual award ceremony setup</p>
+                    </div>
+                </div>
+                
+                <!-- Party 1 -->
+                <div class="gallery-item" data-category="party">
+                    <img src="https://source.unsplash.com/random/600x600/?birthday-party" alt="Luxury Birthday Celebration">
+                    <div class="gallery-item-content">
+                        <h3>Milestone Birthday</h3>
+                        <p>Elegant golden theme celebration</p>
+                    </div>
+                </div>
+                
+                <!-- Wedding 2 -->
+                <div class="gallery-item" data-category="wedding">
+                    <img src="https://source.unsplash.com/random/600x600/?wedding-ceremony" alt="Outdoor Wedding Ceremony">
+                    <div class="gallery-item-content">
+                        <h3>Garden Wedding</h3>
+                        <p>Romantic outdoor ceremony setup</p>
+                    </div>
+                </div>
+                
+                <!-- Social 1 -->
+                <div class="gallery-item" data-category="social">
+                    <img src="https://source.unsplash.com/random/600x600/?cocktail-party" alt="Cocktail Party">
+                    <div class="gallery-item-content">
+                        <h3>Cocktail Evening</h3>
+                        <p>Chic social gathering with live music</p>
+                    </div>
+                </div>
+                
+                <!-- Corporate 2 -->
+                <div class="gallery-item" data-category="corporate">
+                    <img src="https://source.unsplash.com/random/600x600/?conference" alt="Business Conference">
+                    <div class="gallery-item-content">
+                        <h3>Business Conference</h3>
+                        <p>Professional setup for 200+ attendees</p>
+                    </div>
+                </div>
+                
+                <!-- Party 2 -->
+                <div class="gallery-item" data-category="party">
+                    <img src="https://source.unsplash.com/random/600x600/?anniversary-party" alt="Anniversary Celebration">
+                    <div class="gallery-item-content">
+                        <h3>50th Anniversary</h3>
+                        <p>Golden celebration with family</p>
+                    </div>
+                </div>
+                
+                <!-- Wedding 3 -->
+                <div class="gallery-item" data-category="wedding">
+                    <img src="https://source.unsplash.com/random/600x600/?wedding-dinner" alt="Wedding Banquet">
+                    <div class="gallery-item-content">
+                        <h3>Wedding Banquet</h3>
+                        <p>Lavish dinner reception setup</p>
+                    </div>
+                </div>
             </div>
+            
             <div class="gallery-cta">
-                <p>Want to see more of our work?</p>
-                <a href="#contact" class="cta-button">Request Our Portfolio</a>
+                <p>Loved what you see? Let's create something amazing for your event!</p>
+                <a href="#contact" class="cta-button">Book Your Consultation</a>
             </div>
         </div>
     </section>
@@ -329,7 +404,32 @@
         </div>
     </footer>
 
-    <!-- Chatbot will be injected here by chatbot.js -->
+    <!-- Chatbot Container (will be populated by chatbot.js) -->
+    <div id="chatbot-container">
+        <div id="chatbot-header">
+            <span>Menu Assistant</span>
+            <button id="minimize-chat">−</button>
+        </div>
+        <div id="chatbot-messages">
+            <div class="chatbot-message bot">
+                Hello! I'm your menu assistant. How can I help you today?<br><br>
+                You can ask me about:<br>
+                • Menu suggestions for events<br>
+                • Dietary restrictions<br>
+                • Popular dishes<br>
+                • Pricing information
+            </div>
+        </div>
+        <div id="chatbot-input">
+            <input type="text" id="user-message" placeholder="Ask about our menu..." autocomplete="off" />
+            <button id="send-message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <button id="chatbot-toggle">
+        <i class="fas fa-comment-dots"></i>
+    </button>
 
     <script src="script.js"></script>
     <script src="chatbot.js"></script>
