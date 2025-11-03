@@ -404,32 +404,7 @@
         </div>
     </footer>
 
-    <!-- Chatbot Container (will be populated by chatbot.js) -->
-    <div id="chatbot-container">
-        <div id="chatbot-header">
-            <span>Menu Assistant</span>
-            <button id="minimize-chat">−</button>
-        </div>
-        <div id="chatbot-messages">
-            <div class="chatbot-message bot">
-                Hello! I'm your menu assistant. How can I help you today?<br><br>
-                You can ask me about:<br>
-                • Menu suggestions for events<br>
-                • Dietary restrictions<br>
-                • Popular dishes<br>
-                • Pricing information
-            </div>
-        </div>
-        <div id="chatbot-input">
-            <input type="text" id="user-message" placeholder="Ask about our menu..." autocomplete="off" />
-            <button id="send-message">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
-    </div>
-    <button id="chatbot-toggle">
-        <i class="fas fa-comment-dots"></i>
-    </button>
+    <!-- Chatbot Container (dynamically created by chatbot.js) -->
 
     <script src="script.js"></script>
     <script src="chatbot.js"></script>
