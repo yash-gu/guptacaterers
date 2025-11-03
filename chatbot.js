@@ -131,17 +131,74 @@ window.addEventListener('load', function() {
                 return `Here are some of our popular menu categories:\n1. North Indian\n2. South Indian\n3. Chinese\n4. Continental\n5. Desserts\n\nWould you like to know more about any specific category or type of event you're planning?`;
             }
             
-            // Dietary restrictions
-            if (message.includes('vegetarian') || message.includes('veg')) {
-                return `We have a wide range of vegetarian options including:\n• Starters: Paneer Tikka, Hara Bhara Kebab\n• Main Course: Paneer Butter Masala, Dal Makhani\n• Breads: Naan, Roti, Paratha\n• Rice: Veg Biryani, Jeera Rice\n\nWould you like more details about any of these?`;
+            // Dietary restrictions - Enhanced with more details
+            if (message.includes('vegetarian') || message.includes('veg') || message.includes('veg only')) {
+                return `🌱 VEGETARIAN MENU OPTIONS 🌱
+
+🍢 STARTERS:
+• Paneer Tikka (Cottage cheese marinated in spices and grilled) - ₹300
+• Hara Bhara Kebab (Spinach and green pea patties) - ₹280
+• Veg Spring Rolls (Crispy rolls with vegetables) - ₹250
+• Aloo Tikki (Spiced potato patties) - ₹220
+
+🍛 MAIN COURSE:
+• Paneer Butter Masala (Cottage cheese in creamy tomato gravy) - ₹400
+• Dal Makhani (Black lentils cooked with butter and cream) - ₹350
+• Malai Kofta (Veggie balls in rich gravy) - ₹380
+• Chana Masala (Chickpeas in spicy gravy) - ₹320
+
+🍚 RICE & BREADS:
+• Veg Biryani (Fragrant basmati rice with mixed vegetables) - ₹300
+• Jeera Rice - ₹180
+• Naan, Roti, Paratha - ₹40-80 each
+
+Would you like to know about our vegetarian thali options or need help creating a complete vegetarian menu for your event?`;
             }
             
-            if (message.includes('non-veg') || message.includes('non veg') || message.includes('nonvegetarian')) {
-                return `Our non-vegetarian specialties include:\n• Starters: Chicken Tikka, Tandoori Chicken\n• Main Course: Butter Chicken, Chicken Tikka Masala, Mutton Rogan Josh\n• Biryani: Chicken Biryani, Mutton Biryani\n• Seafood: Fish Curry, Prawns Masala\n\nWould you like to know more about any of these dishes?`;
+            if (message.includes('non-veg') || message.includes('non veg') || message.includes('nonvegetarian') || message.includes('chicken') || message.includes('mutton')) {
+                return `🍗 NON-VEGETARIAN SPECIALTIES 🍖
+
+🍗 STARTERS:
+• Chicken Tikka (Tender chicken marinated in spices) - ₹400
+• Tandoori Chicken (Whole chicken marinated in yogurt and spices) - ₹450
+• Mutton Seekh Kebab (Minced mutton kebabs) - ₹500
+• Fish Amritsari (Crispy fried fish) - ₹480
+
+🍛 MAIN COURSE:
+• Butter Chicken (Tender chicken in rich tomato gravy) - ₹500
+• Chicken Tikka Masala (Grilled chicken in spiced curry) - ₹480
+• Mutton Rogan Josh (Tender mutton in aromatic gravy) - ₹550
+• Prawns Masala (Fresh prawns in spicy curry) - ₹600
+
+🍚 BIRYANI & RICE:
+• Chicken Biryani (Fragrant rice with chicken) - ₹450
+• Mutton Biryani (Aromatic rice with mutton) - ₹550
+• Egg Biryani (Flavorful rice with boiled eggs) - ₹380
+
+Would you like to know about our combo meals or need help planning a complete non-vegetarian menu for your event?`;
             }
             
-            if (message.includes('vegan') || message.includes('plant-based')) {
-                return `We offer several vegan options:\n• Starters: Veg Spring Rolls, Aloo Tikki\n• Main Course: Chana Masala, Baingan Bharta, Dal Tadka\n• Rice: Jeera Rice, Vegetable Pulao\n• Bread: Roti, Naan (without ghee)\n\nPlease let us know if you need any modifications to suit your dietary needs.`;
+            if (message.includes('vegan') || message.includes('plant-based') || message.includes('strictly veg')) {
+                return `🌿 VEGAN-FRIENDLY OPTIONS (No dairy, eggs, or animal products) 🌿
+
+🥗 STARTERS:
+• Veg Spring Rolls (No egg in wrap) - ₹250
+• Aloo Tikki (Made with oil, no ghee) - ₹220
+• Chana Chaat (Chickpea salad with spices) - ₹200
+• Corn Chaat (Spiced corn kernels) - ₹180
+
+🍛 MAIN COURSE:
+• Chana Masala (Chickpeas in spicy gravy) - ₹300
+• Baingan Bharta (Smoked eggplant curry) - ₹280
+• Dal Tadka (Tempered lentils) - ₹250
+• Aloo Gobi (Potato and cauliflower curry) - ₹260
+
+🍚 RICE & BREADS:
+• Jeera Rice - ₹180
+• Vegetable Pulao (No ghee) - ₹220
+• Plain Roti (No ghee) - ₹30 each
+
+💡 TIP: All our vegan dishes are prepared with vegetable oil instead of ghee. For complete assurance, please inform our staff about your dietary requirements when placing your order.`;
             }
             
             // Pricing information
@@ -159,8 +216,27 @@ window.addEventListener('load', function() {
                 return 'You\'re welcome! Is there anything else I can help you with?';
             }
             
-            // Default response
-            return 'I\'m here to help with menu suggestions. You can ask me about:\n• Menu options for different events\n• Dietary restrictions (vegetarian, vegan, etc.)\n• Pricing information\n• Popular dishes\n\nWhat would you like to know?';
+            // Default response with more specific menu guidance
+            return `I'm your personal menu assistant! Here's how I can help you:
+
+🍽️ MENU ASSISTANCE:
+• "Show me vegetarian/vegan options"
+• "What are your best non-veg dishes?"
+• "I need a complete wedding menu"
+• "What's included in your party package?"
+
+💁‍♀️ DIETARY NEEDS:
+• "Gluten-free options"
+• "Jain food available?"
+• "Dairy-free desserts"
+• "No onion no garlic options"
+
+💰 PRICING:
+• "Price for 50 people"
+• "What's included in the premium package?"
+• "Any discounts for large orders?"
+
+What would you like to know about our menu options?`;
         }
     } // Close the if (document.body) condition
 }); // Close the window.addEventListener
